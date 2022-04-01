@@ -25,9 +25,10 @@
 	align-self: center;
 }
 
-.contact_button:hover, .contact_button:focus {
-	background-color: #DB8876;
-	color: black
+#contact-btn:hover,
+#contact-btn:focus {
+	background-color: #db8876;
+	color: black;
 }
 
 .modal {
