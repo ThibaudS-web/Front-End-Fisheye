@@ -26,6 +26,9 @@
 }
 
 .modal {
+	position: absolute;
+	top: 4%;
+	left: 24%;
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 50%;
@@ -36,6 +39,7 @@
 	justify-content: space-between;
 	padding: 35px;
 	margin: auto;
+	box-shadow: -13px 0 20px -10px rgba(0,0,0,0.5);
 }
 
 .modal #modal-header {
@@ -54,6 +58,18 @@
 	font-weight: normal;
 	text-align: center;
 	margin: 0;
+}
+
+.bground {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background: rgba(196, 196, 196, 0.4);
 }
 
 form {
