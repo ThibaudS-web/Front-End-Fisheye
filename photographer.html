@@ -37,21 +37,25 @@
 				<form>
 					<div>
 						<label for="firstname">Prénom</label>
-						<input name="firstname" id="firstname" />
+						<input name="firstName" id="firstname" />
+						<span id="error-firstName" class="text-error"></span>
 					</div>
 					<div>
 						<label for="lastname">Nom</label>
-						<input name="lastname" id="lastname" />
+						<input name="lastName" id="lastname" />
+						<span id="error-lastName" class="text-error"></span>
 					</div>
 					<div>
 						<label for="email">Email</label>
 						<input name="email" id="email" />
+						<span id="error-email" class="text-error"></span>
 					</div>
 					<div>
 						<label for="message">Votre Message</label>
 						<textarea name="message" id="message"></textarea>
+						<span id="error-message" class="text-error"></span>
 					</div>
-					<button class="contact_button">Envoyer</button>
+					<button id="submit-btn" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
