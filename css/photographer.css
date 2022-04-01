@@ -25,6 +25,11 @@
 	align-self: center;
 }
 
+.contact_button:hover, .contact_button:focus {
+	background-color: #DB8876;
+	color: black
+}
+
 .modal {
 	position: absolute;
 	top: 4%;
@@ -39,7 +44,7 @@
 	justify-content: space-between;
 	padding: 35px;
 	margin: auto;
-	box-shadow: -13px 0 20px -10px rgba(0,0,0,0.5);
+	box-shadow: -13px 0 20px -10px rgba(0, 0, 0, 0.5);
 }
 
 .modal #modal-header {
