@@ -101,7 +101,12 @@ form div {
 form input {
 	width: 100%;
 	height: 68px;
+}
+
+form input,
+textarea {
 	border: none;
+	font-size: 2em;
 	border-radius: 5px;
 }
 
@@ -138,4 +143,79 @@ form input {
 
 #photograph-infos > :nth-child(3) {
 	color: #525252;
+}
+
+.menu-container {
+	display: flex;
+	margin-left: 7%;
+	align-items: center;
+}
+
+#sort-label {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-right: 25px;
+	align-self: baseline;
+}
+
+.select-box {
+	width: 170px;
+	position: relative;
+	align-self: baseline;
+}
+
+#menu-sort {
+	list-style: none;
+	background-color: #901c1c;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 10px 0;
+	cursor: pointer;
+}
+
+#menu-sort li {
+	padding: 0 10px;
+	margin-left: 10px;
+}
+
+#menu-sort li:nth-child(1),
+#menu-sort li:nth-child(3) {
+	margin: 13px 10px;
+}
+
+#menu-sort li:nth-child(2)::before,
+#menu-sort li:nth-child(2)::after {
+	content: "";
+	width: 150px;
+	height: 1px;
+	background-color: rgb(255, 255, 255);
+	display: block;
+	margin-left: -10px;
+}
+
+#menu-sort li:nth-child(2)::before {
+	margin-bottom: 15px;
+}
+
+#menu-sort li:nth-child(2)::after {
+	margin-top: 15px;
+}
+
+.select-box::after {
+	content: "";
+	position: absolute;
+	right: 20px;
+	top: 42px;
+	width: 0.6em;
+	height: 0.6em;
+	border-left: 0.2rem solid rgb(255, 255, 255);
+	border-bottom: 0.2rem solid rgb(255, 255, 255);
+	transform: rotate(315deg);
+}
+
+.arrow-up::after {
+	transform: rotate(135deg);
+	top: 48px;
 }

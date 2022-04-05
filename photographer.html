@@ -23,8 +23,20 @@
 					<p>London, UK</p>
 					<p>Voir le beau dans le quotidien</p>
 				</div>
-				<button id="contact-btn" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+				<button id="contact-btn" class="contact_button" onclick="displayModal()">
+					Contactez-moi
+				</button>
 				<img id="photograph-img" src="./assets/photographers/MimiKeel.jpg" />
+			</div>
+			<div class="menu-container">
+				<label id="sort-label" for="sort-menu">Trier par</label>
+				<div class="select-box">
+					<ul id="menu-sort">
+						<li>Popularité</li>
+						<li>Date</li>
+						<li>Titre</li>
+					</ul>
+				</div>
 			</div>
 		</main>
 		<div id="contact_modal" class="bground">
@@ -60,5 +72,6 @@
 			</div>
 		</div>
 		<script src="/scripts/utils/contactForm.js"></script>
+		<script src="scripts/utils/sort_menu.js" ></script>
 	</body>
 </html>
