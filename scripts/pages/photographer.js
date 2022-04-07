@@ -15,6 +15,17 @@ const photographerFiltred = getPhotographers.filter(photographer => photographer
 const name = document.getElementById('modal-photograph-name')
 name.innerHTML = photographerFiltred[0].name
 
+//Display the like and price informations
+const likeContainer = document.getElementById('like')
+let totalLikesCount = 0
+mediaFiltred.forEach(media => {
+    totalLikesCount += media.likes
+})
+likeContainer.innerHTML = `${totalLikesCount} <i id="heart-bottom" class="fa-solid fa-heart"></i>`
+
+const price = document.getElementById('price')
+price.innerHTML = `${photographerFiltred[0].price}€ / jour`
+
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
     mediaFiltred.forEach(media => {
