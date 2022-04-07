@@ -11,6 +11,10 @@ const mediaFiltred = getMedias.filter(media => media.photographerId == photograp
 
 const photographerFiltred = getPhotographers.filter(photographer => photographer.id == photographerId)
 
+//Display the name of photographer on the modal contact
+const name = document.getElementById('modal-photograph-name')
+name.innerHTML = photographerFiltred[0].name
+
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
     mediaFiltred.forEach(media => {
@@ -38,8 +42,12 @@ async function AddInfoPhotographer() {
     img.setAttribute('alt', `${photographerFiltred[0].name}`)
 }
 
-AddInfoPhotographer()
-AddMedias()
+function init() {
+    AddInfoPhotographer()
+    AddMedias()
+}
+
+init()
 
 
 

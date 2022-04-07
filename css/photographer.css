@@ -5,7 +5,7 @@
 .photograph-header {
 	background-color: #fafafa;
 	height: 300px;
-	margin: 0 100px 150px 0px;
+	margin: 0 100px 150px 100px;
 	display: flex;
 	justify-content: space-between;
 	padding: 0 5%;
@@ -240,6 +240,7 @@ article img, article video {
 }
 .fa-heart {
 	color: #901c1c;
+	cursor: pointer;
 }
 
 #media-container {

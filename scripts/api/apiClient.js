@@ -29,5 +29,3 @@ class ApiClient {
 }
 
 export const apiClient = new ApiClient()
-
-//Verification que database est pas undefined. ça renvoit undefined si c'est le cas. c'est un chainage optional 
