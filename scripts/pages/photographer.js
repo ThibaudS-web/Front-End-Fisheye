@@ -14,8 +14,14 @@ const photographerFiltred = getPhotographers.filter(photographer => photographer
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
     mediaFiltred.forEach(media => {
-        const mediaCard = new MediaCard(media).createMediaCard()
-        $wrapperMedias.appendChild(mediaCard)
+        if (media.image) {
+            const mediaCard = new MediaCard(media).createPictureCard()
+            $wrapperMedias.appendChild(mediaCard)
+        } else {
+            const mediaCard = new MediaCard(media).createVideoCard()
+            $wrapperMedias.appendChild(mediaCard)
+        }
+
     });
 }
 
@@ -29,6 +35,7 @@ async function AddInfoPhotographer() {
     location.innerHTML = `${photographerFiltred[0].city}, ${photographerFiltred[0].country}`
     tagline.innerHTML = photographerFiltred[0].tagline
     img.setAttribute('src', `./assets/photographers/${photographerFiltred[0].portrait}`)
+    img.setAttribute('alt', `${photographerFiltred[0].name}`)
 }
 
 AddInfoPhotographer()
