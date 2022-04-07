@@ -4,7 +4,7 @@ async function getPhotographers() {
     const photographers = await apiClient.getPhotographers()
     console.log(photographers)
     return ({
-        photographers: [...photographers]
+        photographers
     })
 }
 

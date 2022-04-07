@@ -115,7 +115,7 @@ textarea {
 	height: 170px;
 }
 
-#photograph-img {
+#photographer-img {
 	object-fit: cover;
 	height: 200px;
 	width: 200px;
@@ -148,7 +148,8 @@ textarea {
 .menu-container {
 	display: flex;
 	margin-left: 7%;
-	align-items: center;
+	margin-bottom: 3%;
+	align-items: baseline;
 }
 
 #sort-label {
@@ -158,56 +159,45 @@ textarea {
 	align-self: baseline;
 }
 
-.select-box {
+ul {
 	width: 170px;
-	position: relative;
-	align-self: baseline;
-}
-
-#menu-sort {
-	list-style: none;
-	background-color: #901c1c;
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
 	color: #fff;
-	font-size: 1.1em;
 	font-weight: bold;
+	font-size: 1.1em;
+	position: relative;
+	border: 1px solid #901c1c;
 	border-radius: 5px;
-	padding: 10px 0;
+	padding: 0;
 	cursor: pointer;
 }
 
-#menu-sort li {
-	padding: 0 10px;
-	margin-left: 10px;
+li {
+	background-color: #901c1c;
+	padding: 20px 20px;
 }
 
-#menu-sort li:nth-child(1),
-#menu-sort li:nth-child(3) {
-	margin: 13px 10px;
+li:not(:first-child) {
+	position: relative;
 }
 
-#menu-sort li:nth-child(2)::before,
-#menu-sort li:nth-child(2)::after {
-	content: "";
-	width: 150px;
-	height: 1px;
-	background-color: rgb(255, 255, 255);
-	display: block;
-	margin-left: -10px;
-}
-
-#menu-sort li:nth-child(2)::before {
-	margin-bottom: 15px;
-}
-
-#menu-sort li:nth-child(2)::after {
-	margin-top: 15px;
-}
-
-.select-box::after {
+li:not(:first-child)::before {
 	content: "";
 	position: absolute;
-	right: 20px;
-	top: 42px;
+	top: 0px;
+	left: 5px;
+	width: 90%;
+	height: 1px;
+	background-color: rgb(255, 255, 255);
+}
+
+ul::after {
+	content: "";
+	position: absolute;
+	right: 25px;
+	top: 22px;
 	width: 0.6em;
 	height: 0.6em;
 	border-left: 0.2rem solid rgb(255, 255, 255);
@@ -217,5 +207,39 @@ textarea {
 
 .arrow-up::after {
 	transform: rotate(135deg);
-	top: 48px;
+	top: 28px;
+}
+article {
+	width: 350px;
+	margin-right: 6%;
+}
+
+article img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.picture-infos {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.heart-container {
+	display: flex;
+	align-items: center;
+}
+.likeCount {
+	color: #901c1c;
+	margin-right: 7px;
+}
+.fa-heart {
+	color: #901c1c;
+}
+
+#media-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 7%;
 }

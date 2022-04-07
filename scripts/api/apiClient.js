@@ -12,14 +12,13 @@ class ApiClient {
 
     async getPhotographers() {
         const dataBase = await this.getDB()
-        const photographers = dataBase.photographers
+        const photographers = dataBase?.photographers
         return photographers
-
     }
 
     async getMedias() {
         const dataBase = await this.getDB()
-        const medias = dataBase.media
+        const medias = dataBase?.media
         return medias
     }
 
@@ -30,3 +29,5 @@ class ApiClient {
 }
 
 export const apiClient = new ApiClient()
+
+//Verification que database est pas undefined. ça renvoit undefined si c'est le cas. c'est un chainage optional 

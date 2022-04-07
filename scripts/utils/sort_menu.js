@@ -1,6 +1,9 @@
-const listMenu = Array.from(document.querySelectorAll('#menu-sort li'))
-const menu = document.querySelector('#menu-sort')
-const arrow = document.querySelector('.select-box')
+const listMenu = Array.from(document.querySelectorAll('ul li'))
+const menu = document.querySelector('ul')
+
+let sortLabel = document.querySelector('#sort-label')
+
+const arrow = document.querySelector('ul')
 
 let isDisplay = true
 
@@ -20,8 +23,6 @@ function closeMenu() {
     })
 }
 
-closeMenu()
-
 function displayMenu() {
     if (isDisplay) {
         openMenu()
@@ -30,4 +31,32 @@ function displayMenu() {
     }
 }
 
+closeMenu()
+
 menu.addEventListener('click', displayMenu)
+
+// sortLabel.addEventListener('click', function () {
+//     const popularity = document.getElementById('popularity')
+//     const date = document.getElementById('date')
+//     const title = document.getElementById('title')
+//     const li = document.createElement('li')
+
+//     menu.replaceChild(date, popularity)
+//     menu.appendChild(popularity)
+//     console.log(popularity)
+// })
+
+// listMenu.forEach(listItem => {
+//     const popularity = document.getElementById('popularity')
+//     const date = document.getElementById('date')
+//     const title = document.getElementById('title')
+//     const FP = menu.children[0]
+//     listItem.addEventListener('click', function () {
+//         menu.replaceChild(this, FP)
+//         menu.appendChild(FP)
+        
+        
+//     })
+// })
+
+

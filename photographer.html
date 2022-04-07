@@ -8,6 +8,13 @@
 			href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<title>Fisheye - photographe</title>
 	</head>
 	<body>
@@ -19,25 +26,26 @@
 		<main id="main">
 			<div class="photograph-header">
 				<div id="photograph-infos">
-					<h1>Mimi keel</h1>
-					<p>London, UK</p>
-					<p>Voir le beau dans le quotidien</p>
+					<h1 id="photographer-name"></h1>
+					<p id="photographer-location"></p>
+					<p id="photographer-tagline"></p>
 				</div>
 				<button id="contact-btn" class="contact_button" onclick="displayModal()">
 					Contactez-moi
 				</button>
-				<img id="photograph-img" src="./assets/photographers/MimiKeel.jpg" />
+				<img id="photographer-img" src="" />
 			</div>
 			<div class="menu-container">
 				<label id="sort-label" for="sort-menu">Trier par</label>
-				<div class="select-box">
-					<ul id="menu-sort">
-						<li>Popularité</li>
-						<li>Date</li>
-						<li>Titre</li>
+				<div class="menu">
+					<ul>
+						<li id="popularity">Popularité</li>
+						<li id="date">Date</li>
+						<li id="title">Titre</li>
 					</ul>
 				</div>
 			</div>
+			<div id="media-container"></div>
 		</main>
 		<div id="contact_modal" class="bground">
 			<div class="modal">
@@ -72,6 +80,7 @@
 			</div>
 		</div>
 		<script src="/scripts/utils/contactForm.js"></script>
-		<script src="scripts/utils/sort_menu.js" ></script>
+		<script src="scripts/utils/sort_menu.js"></script>
+		<script type="module" src="scripts/pages/photographer.js"></script>
 	</body>
 </html>
