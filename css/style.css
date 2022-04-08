@@ -1,5 +1,6 @@
 @import url("photographer.css");
 @import url('form_validation.css');
+@import url('not_found.css');
 
 body {
     font-family: "DM Sans", sans-serif;
