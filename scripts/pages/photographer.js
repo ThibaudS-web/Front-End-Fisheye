@@ -1,5 +1,5 @@
 import { apiClient } from '../api/apiClient.js'
-import MediaCard from '../../templates/mediaCard.js'
+import MediaFactory from '../factories/MediaFactory.js';
 
 let params = (new URL(document.location)).searchParams;
 let photographerId = params.get('photographerId')
@@ -29,14 +29,8 @@ price.innerHTML = `${photographerFiltred[0].price}€ / jour`
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
     mediaFiltred.forEach(media => {
-        if (media.image) {
-            const mediaCard = new MediaCard(media).createPictureCard()
-            $wrapperMedias.appendChild(mediaCard)
-        } else {
-            const mediaCard = new MediaCard(media).createVideoCard()
-            $wrapperMedias.appendChild(mediaCard)
-        }
-
+        const mediaCard = new MediaFactory(media)
+        $wrapperMedias.appendChild(mediaCard)
     });
 }
 
