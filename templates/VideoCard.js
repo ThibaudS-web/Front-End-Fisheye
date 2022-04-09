@@ -1,6 +1,7 @@
 class VideoCard {
     constructor() {
         this.$wrapper = document.createElement('article')
+        this.$wrapperFigure = document.createElement('figure')
     }
 
     createVideoOnPage(media) {
@@ -20,15 +21,15 @@ class VideoCard {
         return this.$wrapper
     }
 
-    createVideoOnSlider() {
+    createVideoOnSlider(media) {
         const mediaCard = `
-            <video controls alt="${media.title}">
+            <video class="lightbox-img" controls alt="${media.title}">
                 <source src="./assets/photographers/${media.photographerId}/${media.video}" type=video/mp4>
             </video>
-            <p>${media.title}</p>
+            <figcaption>${media.title}</figcaption>
         `
-        this.$wrapper.innerHTML = mediaCard
-        return this.$wrapper
+        this.$wrapperFigure.innerHTML = mediaCard
+        return this.$wrapperFigure
     }
 }
 

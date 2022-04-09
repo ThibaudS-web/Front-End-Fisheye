@@ -6,7 +6,7 @@ let photographerId = params.get('photographerId')
 
 const getMedias = await apiClient.getMedias()
 const getPhotographers = await apiClient.getPhotographers()
-
+const mediaCard = document.querySelectorAll('#media-container article')
 const mediaFiltred = getMedias.filter(media => media.photographerId == photographerId)
 
 const photographerFiltred = getPhotographers.filter(photographer => photographer.id == photographerId)
@@ -29,7 +29,7 @@ price.innerHTML = `${photographerFiltred[0].price}€ / jour`
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
     mediaFiltred.forEach(media => {
-        const mediaCard = new MediaFactory(media)
+        const mediaCard = new MediaFactory(media, 'page')
         $wrapperMedias.appendChild(mediaCard)
     });
 }
@@ -46,6 +46,7 @@ async function AddInfoPhotographer() {
     img.setAttribute('src', `./assets/photographers/${photographerFiltred[0].portrait}`)
     img.setAttribute('alt', `${photographerFiltred[0].name}`)
 }
+
 
 function init() {
     AddInfoPhotographer()

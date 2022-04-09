@@ -1,6 +1,7 @@
 class PictureCard {
     constructor() {
         this.$wrapper = document.createElement('article')
+        this.$wrapperFigure = document.createElement('figure')
     }
 
     createPictureOnPage(media) {
@@ -15,20 +16,17 @@ class PictureCard {
 				</div>
         `
         this.$wrapper.innerHTML = mediaCard
-
         return this.$wrapper
     }
 
-    createPictureOnSlider() {
+    createPictureOnSlider(media) {
         const mediaCard = `
-            <img src="./assets/photographers/${media.photographerId}/${media.image}" alt="${media.title}" />
-				<div class="picture-infos">
-					<p>${media.title}</p>
+				<img class="lightbox-img" src="./assets/photographers/${media.photographerId}/${media.image}" alt="${media.title}" />
+				<figcaption>${media.title}</figcaption>	
         `
-        this.$wrapper.innerHTML = mediaCard
-
-        return this.$wrapper
+        this.$wrapperFigure.innerHTML = mediaCard
+        return this.$wrapperFigure
     }
 }
 
-export default PictureCard
+export default PictureCard 

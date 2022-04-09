@@ -214,7 +214,7 @@ ul::after {
 
 article {
 	width: 350px;
-	margin-right: 6%;
+	margin-right: 7%;
 	margin-bottom: 2%;
 }
 
@@ -224,6 +224,7 @@ article video {
 	height: 300px;
 	object-fit: cover;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .picture-infos {
@@ -285,29 +286,34 @@ article video {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	padding: 35px;
 	margin: auto;
 	box-shadow: -13px 0 20px -10px rgb(0 0 0 / 50%);
-	overflow: hidden;
 }
 
 #lightbox-close {
 	position: absolute;
-	top: 115px;
+	top: 80px;
 	right: 65px;
 }
 
-figure {
-	width: 800px;
-	height: 400px;
-
-
-	height: 80%;
+#lightbox-close path:hover {
+	fill: #db8876;
+	cursor: pointer;
 }
 
-figure video {
-	width: 800px;
-	object-fit: cover;
+#lightbox-img-container {
+	width: 850px;
+	height: auto;
+	display: flex;
+	overflow: hidden;
+}
+
+#lightbox-img-container figure {
+	margin: 0 20px 0 0;
+	width: 100%;
+	align-self: center;
 }
 
 figcaption {
@@ -316,15 +322,12 @@ figcaption {
 	font-weight: 600;
 }
 
-.modal-img {
-	width: 800px;
-	height: 400px;
+.lightbox-img {
+	width: 850px;
+	height: 720px;
 	border-radius: 5px;
-	margin: 0;
-	display: inline-block;
 	object-fit: cover;
 	box-shadow: -13px 0 20px -10px rgb(0 0 0 / 50%);
-	background-size: cover;
 }
 
 #modal-right-btn,
