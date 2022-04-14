@@ -1,32 +1,43 @@
 class PictureCard {
-    constructor() {
+    constructor(media) {
+        this.media = media
         this.$wrapper = document.createElement('article')
         this.$wrapperFigure = document.createElement('figure')
     }
 
-    createPictureOnPage(media) {
+    createPictureOnPage() {
         const mediaCard = `
-            <img src="./assets/photographers/${media.photographerId}/${media.image}" alt="${media.title}" />
+            <img src="./assets/photographers/${this.media.photographerId}/${this.media.image}" alt="${this.media.title}" />
 				<div class="picture-infos">
-					<p>${media.title}</p>
+					<p>${this.media.title}</p>
 					<div class="heart-container">
-						<p class="likeCount">${media.likes}</p>
+						<p class="likeCount">${this.media.likes}</p>
 						<i class="fa-solid fa-heart"></i>
 					</div>
 				</div>
         `
         this.$wrapper.innerHTML = mediaCard
+        this.$wrapper.setAttribute('data-src', `./assets/photographers/${this.media.photographerId}/${this.media.image}`)
+        this.$wrapper.setAttribute('data-name', `${this.media.title}`)
+        this.clickOpenModal()
         return this.$wrapper
     }
 
-    createPictureOnSlider(media) {
-        const mediaCard = `
-				<img class="lightbox-img" src="./assets/photographers/${media.photographerId}/${media.image}" alt="${media.title}" />
-				<figcaption>${media.title}</figcaption>	
-        `
-        this.$wrapperFigure.innerHTML = mediaCard
-        return this.$wrapperFigure
+    clickOpenModal() {
+        const modal = document.getElementById("image_lightbox")
+        this.$wrapper.addEventListener('click', function () {
+            modal.style.display = 'block'
+        })
     }
 }
 
 export default PictureCard 
+
+//Ajouter event ici
+
+//data-id => selectionner en JS dataSet.id
+//class selected
+
+
+//1 : selectionner l'image avec l'attribut selected
+//2 :
