@@ -1,24 +1,30 @@
 const listMenu = Array.from(document.querySelectorAll('ul li'))
 const menu = document.querySelector('ul')
+const DOMListMenu = menu.querySelectorAll('li')
 
-let sortLabel = document.querySelector('#sort-label')
+let newMenu = DOMListMenu
 
-const arrow = document.querySelector('ul')
+newMenu.forEach(list => {
+    list.addEventListener('click', function () {
+        menu.insertBefore(this, menu.children[0])
+        newMenu = menu.querySelectorAll('li')
+    })
+})
 
-let isDisplay = true
+let isDisplay = false
 
 function openMenu() {
-    listMenu.slice(1).forEach(list => {
+    Array.from(newMenu).slice(1).forEach(list => {
         list.style.display = 'block'
-        arrow.classList.add('arrow-up')
+        menu.classList.add('arrow-up')
         isDisplay = false
     })
 }
 
 function closeMenu() {
-    listMenu.slice(1).forEach(list => {
+    Array.from(newMenu).slice(1).forEach(list => {
         list.style.display = 'none'
-        arrow.classList.remove('arrow-up')
+        menu.classList.remove('arrow-up')
         isDisplay = true
     })
 }
@@ -31,32 +37,7 @@ function displayMenu() {
     }
 }
 
-closeMenu()
-
 menu.addEventListener('click', displayMenu)
 
-// sortLabel.addEventListener('click', function () {
-//     const popularity = document.getElementById('popularity')
-//     const date = document.getElementById('date')
-//     const title = document.getElementById('title')
-//     const li = document.createElement('li')
-
-//     menu.replaceChild(date, popularity)
-//     menu.appendChild(popularity)
-//     console.log(popularity)
-// })
-
-// listMenu.forEach(listItem => {
-//     const popularity = document.getElementById('popularity')
-//     const date = document.getElementById('date')
-//     const title = document.getElementById('title')
-//     const FP = menu.children[0]
-//     listItem.addEventListener('click', function () {
-//         menu.replaceChild(this, FP)
-//         menu.appendChild(FP)
-        
-        
-//     })
-// })
-
+displayMenu()
 

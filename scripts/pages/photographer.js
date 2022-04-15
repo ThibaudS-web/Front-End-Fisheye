@@ -61,7 +61,6 @@ function openModal() {
     })
 }
 
-
 const rightArrow = document.getElementById('modal-right-btn')
 const leftArrow = document.getElementById('modal-left-btn')
 const figure = document.querySelector("#lightbox-img-container figure")
@@ -87,7 +86,6 @@ rightArrow.addEventListener('click', function () {
     figure.innerHTML = new MediaFactory().getContent(medias[indexMediaSelected], 'slider')
 })
 
-
 leftArrow.addEventListener('click', function () {
     const medias = Array.from(document.querySelectorAll('article'))
     let mediaSelected
@@ -105,7 +103,7 @@ leftArrow.addEventListener('click', function () {
     } else {
         medias[indexMediaSelected].setAttribute('selected', '')
     }
-    
+
     figure.innerHTML = new MediaFactory().getContent(medias[indexMediaSelected], 'slider')
 })
 
