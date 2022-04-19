@@ -155,6 +155,7 @@ textarea {
 	margin-bottom: 5%;
 	align-items: baseline;
 	position: relative;
+	z-index: 1;
 }
 
 #sort-label {
@@ -219,7 +220,7 @@ ul::after {
 
 article {
 	width: 350px;
-	margin-right: 7%;
+	margin-right: 6%;
 	margin-bottom: 2%;
 }
 

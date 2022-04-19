@@ -11,13 +11,13 @@ newMenu.forEach(list => {
     })
 })
 
-let isDisplay = false
+let menuIsDisplay = false
 
 function openMenu() {
     Array.from(newMenu).slice(1).forEach(list => {
         list.style.display = 'block'
         menu.classList.add('arrow-up')
-        isDisplay = false
+        menuIsDisplay = false
     })
 }
 
@@ -25,12 +25,12 @@ function closeMenu() {
     Array.from(newMenu).slice(1).forEach(list => {
         list.style.display = 'none'
         menu.classList.remove('arrow-up')
-        isDisplay = true
+        menuIsDisplay = true
     })
 }
 
 function displayMenu() {
-    if (isDisplay) {
+    if (menuIsDisplay) {
         openMenu()
     } else {
         closeMenu()
@@ -40,4 +40,13 @@ function displayMenu() {
 menu.addEventListener('click', displayMenu)
 
 displayMenu()
+//TODO : RENAME THIS FUNCTION
+function checkMenuDisplay() {
+    if (menuIsDisplay) {
+        return false
+    } else {
+        return true
+    }
+}
 
+export default checkMenuDisplay

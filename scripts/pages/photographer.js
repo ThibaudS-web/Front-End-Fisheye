@@ -1,5 +1,7 @@
 import { apiClient } from '../api/apiClient.js'
-import MediaFactory from '../factories/MediaFactory.js';
+import PageMediasFactory from '../factories/PageMediasFactory.js';
+import SliderMediasFactory from '../factories/SliderMediasFactory.js';
+import checkMenuDisplay from '../utils/sort_menu.js'
 
 let params = (new URL(document.location)).searchParams;
 let photographerId = params.get('photographerId')
@@ -11,6 +13,9 @@ const getPhotographers = await apiClient.getPhotographers()
 const mediaFiltred = getMedias.filter(media => media.photographerId == photographerId)
 
 const photographerFiltred = getPhotographers.filter(photographer => photographer.id == photographerId)
+
+const documentTitle = document.querySelector('head title')
+documentTitle.innerHTML = `FishEye - ${photographerFiltred[0].name}`
 
 //Display the name of photographer on the modal contact
 const name = document.getElementById('modal-photograph-name')
@@ -30,24 +35,58 @@ price.innerHTML = `${photographerFiltred[0].price}€ / jour`
 
 async function AddMedias() {
     const $wrapperMedias = document.getElementById('media-container')
-
-    mediaFiltred.forEach(media => {
-        const mediaCard = new MediaFactory().getContent(media, 'page')
-        $wrapperMedias.appendChild(mediaCard)
-    });
+    if ($wrapperMedias.querySelectorAll('article').length === 0) {
+        mediaFiltred.forEach(media => {
+            const mediaCard = new PageMediasFactory().getContent(media)
+            $wrapperMedias.appendChild(mediaCard)
+        });
+    } else {
+        $wrapperMedias.querySelectorAll('article').forEach(media => media.remove())
+        AddMedias()
+    }
 }
 
-function setupAttributOnMedias() {
-    const articles = document.querySelectorAll('#media-container article')
-    articles.forEach((article, index) => {
-        if (article.querySelector('img')) {
-            article.setAttribute('data-id', index + 1)
-        } else if (article.querySelector('video')) {
-            article.setAttribute('data-id', index + 1)
+async function sortMedias() {
+    const popularity = document.getElementById('popularity')
+    const date = document.getElementById('date')
+    const title = document.getElementById('title')
+
+    function sortByPopularity() {
+        if (checkMenuDisplay()) {
+            mediaFiltred.sort((a, b) => b.likes > a.likes ? 1 : -1)
+            console.log(mediaFiltred)
+            AddMedias()
+            openModal()
         } else {
-            throw 'Image or Video Element not found!'
+            return
         }
-    })
+    }
+
+    function sortByDate() {
+        if (checkMenuDisplay()) {
+            mediaFiltred.sort((a, b) => b.date > a.date ? 1 : -1)
+            console.log(mediaFiltred)
+            AddMedias()
+            openModal()
+        } else {
+            return
+        }
+    }
+
+    function sortByTitle() {
+        if (checkMenuDisplay()) {
+            mediaFiltred.sort((a, b) => b.title < a.title ? 1 : -1)
+            console.log(mediaFiltred)
+            AddMedias()
+            openModal()
+        } else {
+            return
+        }
+    }
+
+    popularity.addEventListener('click', sortByPopularity)
+    date.addEventListener('click', sortByDate)
+    title.addEventListener('click', sortByTitle)
 }
 
 function openModal() {
@@ -56,7 +95,8 @@ function openModal() {
     articles.forEach((article) => {
         article.addEventListener('click', () => {
             article.setAttribute('selected', '')
-            figure.innerHTML = new MediaFactory().getContent(article, 'slider')
+            console.log(article)
+            figure.innerHTML = new SliderMediasFactory().getContent(article)
         })
     })
 }
@@ -65,12 +105,12 @@ const rightArrow = document.getElementById('modal-right-btn')
 const leftArrow = document.getElementById('modal-left-btn')
 const figure = document.querySelector("#lightbox-img-container figure")
 
-rightArrow.addEventListener('click', function () {
+function rightArrowModal() {
     const medias = Array.from(document.querySelectorAll('article'))
     let mediaSelected
 
     medias.forEach(media => {
-        media.attributes.selected ? mediaSelected = media : false
+        media.attributes.selected ? mediaSelected = media : null
         media.removeAttribute('selected')
     })
 
@@ -79,14 +119,16 @@ rightArrow.addEventListener('click', function () {
     if (indexMediaSelected > medias.length - 1) {
         medias[0].setAttribute('selected', '')
         indexMediaSelected = 0
+        console.log(medias[0])
     } else {
+        console.log(medias[indexMediaSelected])
         medias[indexMediaSelected].setAttribute('selected', '')
     }
 
-    figure.innerHTML = new MediaFactory().getContent(medias[indexMediaSelected], 'slider')
-})
+    figure.innerHTML = new SliderMediasFactory().getContent(medias[indexMediaSelected])
+}
 
-leftArrow.addEventListener('click', function () {
+function leftArrowModal() {
     const medias = Array.from(document.querySelectorAll('article'))
     let mediaSelected
 
@@ -100,12 +142,14 @@ leftArrow.addEventListener('click', function () {
     if (indexMediaSelected < 0) {
         medias[medias.length - 1].setAttribute('selected', '')
         indexMediaSelected = medias.length - 1
+        console.log(medias[medias.length - 1])
     } else {
+        console.log(medias[indexMediaSelected])
         medias[indexMediaSelected].setAttribute('selected', '')
     }
 
-    figure.innerHTML = new MediaFactory().getContent(medias[indexMediaSelected], 'slider')
-})
+    figure.innerHTML = new SliderMediasFactory().getContent(medias[indexMediaSelected])
+}
 
 async function AddInfoPhotographer() {
     const name = document.getElementById('photographer-name')
@@ -132,13 +176,17 @@ function closeSlider() {
     })
 }
 
+rightArrow.addEventListener('click', rightArrowModal)
+leftArrow.addEventListener('click', leftArrowModal)
 closeBtn.addEventListener('click', closeSlider)
 
 function init() {
     AddInfoPhotographer()
     AddMedias()
-    setupAttributOnMedias()
+    sortMedias()
     openModal()
 }
 
 init()
+
+
