@@ -30,7 +30,7 @@
 					<p id="photographer-location"></p>
 					<p id="photographer-tagline"></p>
 				</div>
-				<button id="contact-btn" class="contact_button" onclick="displayModal()">
+				<button id="contact-btn" class="contact_button">
 					Contactez-moi
 				</button>
 				<img id="photographer-img" src="" />
@@ -79,7 +79,7 @@
 			<div class="modal">
 				<div id="modal-header">
 					<h2>Contactez-moi</h2>
-					<img src="assets/icons/close.svg" onclick="closeModal()" />
+					<img id="contact_close" src="assets/icons/close.svg"/>
 					<h2 id="modal-photograph-name"></h2>
 				</div>
 				<form>
@@ -109,8 +109,7 @@
 		</div>
 
 		<script type="module" src="scripts/pages/photographer.js"></script>
-		<script type="module" src="scripts/utils/sort_menu.js"></script>
+		<script type="module" src="scripts/UI/sort_menu.js"></script>
 		<script src="/scripts/utils/redirection.js"></script>
-		<script src="/scripts/utils/contactForm.js"></script>
 	</body>
 </html>

@@ -1,4 +1,3 @@
-const listMenu = Array.from(document.querySelectorAll('ul li'))
 const menu = document.querySelector('ul')
 const DOMListMenu = menu.querySelectorAll('li')
 
@@ -40,7 +39,7 @@ function displayMenu() {
 menu.addEventListener('click', displayMenu)
 
 displayMenu()
-//TODO : RENAME THIS FUNCTION
+
 function checkMenuDisplay() {
     if (menuIsDisplay) {
         return false

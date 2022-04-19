@@ -3,11 +3,11 @@ import SliderMedias from "../../templates/SliderMedia.js"
 class SliderMediasFactory {
     getContent(data) {
 
-        if (data.querySelector('img')) {
+        if (data.image) {
 
             return new SliderMedias(data).createPictureOnSlider()
 
-        } else if (data.querySelector('video')) {
+        } else if (data.video) {
 
             return new SliderMedias(data).createVideoOnSlider()
 
@@ -21,4 +21,3 @@ class SliderMediasFactory {
 
 export default SliderMediasFactory
 
-//Créer des enums pour gérer seulement le type

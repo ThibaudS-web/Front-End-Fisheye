@@ -1,12 +1,12 @@
 class SliderMedias {
-    constructor(article) {
-        this.article = article
+    constructor(media) {
+        this.media = media
     }
 
     createPictureOnSlider() {
         const pictureCard = `
-                    <img src='${this.article.dataset.src}' class="lightbox-img" />
-                    <figcaption>${this.article.dataset.name}</figcaption>
+                    <img src="./assets/photographers/${this.media.photographerId}/${this.media.image}" class="lightbox-img" />
+                    <figcaption>${this.media.title}</figcaption>
                 `
         return pictureCard
     }
@@ -14,12 +14,12 @@ class SliderMedias {
     createVideoOnSlider() {
         const videoCard = ` 
                     <video class="lightbox-img" controls>
-                        <source src='${this.article.dataset.src}'type=video/mp4>
+                        <source src="./assets/photographers/${this.media.photographerId}/${this.media.video}" type=video/mp4>
                     </video>
-                     <figcaption>${this.article.dataset.name}</figcaption>
+                     <figcaption>${this.media.title}</figcaption>
                 `
         return videoCard
-    }
+    } 
 }
 
 export default SliderMedias

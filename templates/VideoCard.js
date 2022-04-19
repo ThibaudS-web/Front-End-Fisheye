@@ -1,8 +1,8 @@
 class VideoCard {
-    constructor(media) {
+    constructor(media , onClick) {
         this.media = media
+        this.onClick = onClick
         this.$wrapper = document.createElement('article')
-        this.$wrapperFigure = document.createElement('figure')
     }
 
     createVideoOnPage() {
@@ -21,15 +21,10 @@ class VideoCard {
         this.$wrapper.innerHTML = mediaCard
         this.$wrapper.setAttribute('data-src', `./assets/photographers/${this.media.photographerId}/${this.media.video}`)
         this.$wrapper.setAttribute('data-name', `${this.media.title}`)
-        this.clickOpenModal()
-        return this.$wrapper
-    }
-    
-    clickOpenModal() {
-        const modal = document.getElementById("image_lightbox")
-        this.$wrapper.addEventListener('click', function () {
-            modal.style.display = 'block'
+        this.$wrapper.addEventListener('click', () => {
+            this.onClick(this.media.id)
         })
+        return this.$wrapper
     }
 }
 

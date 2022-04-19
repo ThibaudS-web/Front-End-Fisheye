@@ -1,8 +1,8 @@
 class PictureCard {
-    constructor(media) {
+    constructor(media, onClick) {
         this.media = media
+        this.onClick = onClick
         this.$wrapper = document.createElement('article')
-        this.$wrapperFigure = document.createElement('figure')
     }
 
     createPictureOnPage() {
@@ -19,25 +19,15 @@ class PictureCard {
         this.$wrapper.innerHTML = mediaCard
         this.$wrapper.setAttribute('data-src', `./assets/photographers/${this.media.photographerId}/${this.media.image}`)
         this.$wrapper.setAttribute('data-name', `${this.media.title}`)
-        this.clickOpenModal()
+        this.$wrapper.addEventListener('click', () => {
+            this.onClick(this.media.id)
+        })
         return this.$wrapper
     }
 
-    clickOpenModal() {
-        const modal = document.getElementById("image_lightbox")
-        this.$wrapper.addEventListener('click', function () {
-            modal.style.display = 'block'
-        })
-    }
+
+        
+
 }
 
 export default PictureCard 
-
-//Ajouter event ici
-
-//data-id => selectionner en JS dataSet.id
-//class selected
-
-
-//1 : selectionner l'image avec l'attribut selected
-//2 :
