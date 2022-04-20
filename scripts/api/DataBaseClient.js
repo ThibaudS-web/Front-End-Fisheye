@@ -1,4 +1,4 @@
-class ApiClient {
+class DataBaseClient {
     constructor() {
         this.url = '../../data/photographers.json'
     }
@@ -28,4 +28,4 @@ class ApiClient {
     }
 }
 
-export const apiClient = new ApiClient()
+export const dataBaseClient = new DataBaseClient()

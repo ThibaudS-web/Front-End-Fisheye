@@ -24,10 +24,6 @@ class PictureCard {
         })
         return this.$wrapper
     }
-
-
-        
-
 }
 
 export default PictureCard 

@@ -1,5 +1,5 @@
-import SliderMediasFactory from "../../factories/SliderMediasFactory.js"
-import InputField from "../../UI/InputField.js"
+import SliderMediasFactory from "../factories/SliderMediasFactory.js"
+import InputField from "../UI/InputField.js"
 
 class ModalComponent {
 
@@ -10,7 +10,7 @@ class ModalComponent {
         })
 
         let selectedIndex = mediaList.findIndex(media => media.id === selectedMediaId)
-
+       
         modalContent.innerHTML = sliderItems[selectedIndex]
 
         const rightArrow = modal.querySelector('#modal-right-btn')
@@ -44,10 +44,14 @@ class ModalComponent {
         })
     }
 
-    displayContact(modal) {
+    displayContact(modal, photographName) {
         modal.style.display = 'block'
         const form = modal.querySelector("form")
         const submitBtn = modal.querySelector("#submit-btn")
+
+        //Display the name of photographer on the modal contact
+        const name = modal.querySelector('#modal-photograph-name')
+        name.innerHTML = photographName
 
         const closeModalContact = modal.querySelector('#contact_close')
 
