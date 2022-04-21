@@ -254,6 +254,10 @@ article video {
 	cursor: pointer;
 }
 
+#heart-full-icon {
+	display: none;
+}
+
 #heart-bottom {
 	color: black;
 	cursor: inherit;

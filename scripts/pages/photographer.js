@@ -17,15 +17,17 @@ const currentPhotographer = getPhotographers.filter(photographer => photographer
 const modalComponent = new ModalComponent()
 const redirection = new RedirectionComponent()
 
+const likedMedias = new Map()
+
 function init() {
     VerifyURLOnPhotographerHTML()
     editTitleDocument()
+    addMedias()
     photographerInfosBottomBanner()
     AddInfoPhotographer()
     callModalContact()
-    addMedias()
     sortMedias()
-}   
+}
 
 init()
 
@@ -48,6 +50,7 @@ function editTitleDocument() {
 //Display the like and price informations
 function photographerInfosBottomBanner() {
     const likeContainer = document.getElementById('like')
+
     let totalLikesCount = 0
     currentPhotographerMedias.forEach(media => {
         totalLikesCount += media.likes
@@ -59,6 +62,19 @@ function photographerInfosBottomBanner() {
     price.innerHTML = `${currentPhotographer.price}€ / jour`
 }
 
+function updateLikesOnBottomBanner() {
+    const likeContainer = document.getElementById('like')
+
+    const likes = Array.from(document.querySelectorAll('.likeCount')).map((likeElement) => parseInt(likeElement.innerHTML))
+
+    let totalLikes = likes.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+    )
+
+    likeContainer.innerHTML = `${totalLikes} <i id="heart-bottom" class="fa-solid fa-heart"></i>`
+}
+
 function callModalContact() {
     const openModalContact = document.querySelector("#contact-btn")
     const modalContact = document.querySelector("#contact_modal")
@@ -67,14 +83,58 @@ function callModalContact() {
     })
 }
 
-async function addMedias() {
+function displaySliderModal(mediaId) {
     const modalSlider = document.querySelector('#image_lightbox')
+    modalComponent.displayMediaSlider(modalSlider, currentPhotographerMedias, mediaId)
+}
+
+function likeMedia(mediaId) {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    let currentMedia = currentPhotographerMedias.find((media) => media.id === mediaId)
+
+    if (likedMedias.has(mediaId)) {
+        // Nothing happens, media is already liked
+    } else {
+        likedMedias.set(mediaId, true)
+        currentMedia.likes++
+    }
+}
+
+function dislikeMedia(mediaId) {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    let currentMedia = currentPhotographerMedias.find((media) => media.id === mediaId)
+
+    if (!likedMedias.has(mediaId)) {
+        // Nothing happens, media is already disliked
+    } else {
+        likedMedias.delete(mediaId)
+        currentMedia.likes--
+    }
+}
+
+function addMedias() {
     const $wrapperMedias = document.getElementById('media-container')
+
     currentPhotographerMedias.forEach(media => {
-        const mediaCard = new PageMediasFactory().getContent(media, (mediaId) => {
-            modalComponent.displayMediaSlider(modalSlider, currentPhotographerMedias, mediaId)
-        })
-        $wrapperMedias.appendChild(mediaCard)
+        const mediaCard = new PageMediasFactory().create(media)
+
+        mediaCard.onClick = (id) => {
+            displaySliderModal(id)
+        }
+
+        mediaCard.onLikeClick = (id) => {
+            likeMedia(id)
+            mediaCard.updateLikes(true)
+            updateLikesOnBottomBanner()
+        }
+
+        mediaCard.onDislikeClick = (id) => {
+            dislikeMedia(id)
+            mediaCard.updateLikes(false)
+            updateLikesOnBottomBanner()
+        }
+
+        $wrapperMedias.appendChild(mediaCard.getHTML())
     })
 }
 
@@ -92,7 +152,6 @@ async function sortMedias() {
         if (checkMenuDisplay()) {
             removeMedias()
             currentPhotographerMedias.sort((a, b) => b.likes > a.likes ? 1 : -1)
-            console.log(currentPhotographerMedias)
             addMedias()
         } else {
             return
@@ -114,7 +173,6 @@ async function sortMedias() {
         if (checkMenuDisplay()) {
             removeMedias()
             currentPhotographerMedias.sort((a, b) => b.title < a.title ? 1 : -1)
-            console.log(currentPhotographerMedias)
             addMedias()
         } else {
             return
@@ -131,7 +189,7 @@ async function AddInfoPhotographer() {
     const location = document.getElementById('photographer-location')
     const tagline = document.getElementById('photographer-tagline')
     const img = document.getElementById('photographer-img')
-    
+
     name.innerHTML = currentPhotographer.name
     location.innerHTML = `${currentPhotographer.city}, ${currentPhotographer.country}`
     tagline.innerHTML = currentPhotographer.tagline

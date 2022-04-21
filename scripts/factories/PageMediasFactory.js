@@ -2,15 +2,15 @@ import PictureCard from "../../templates/PictureCard.js"
 import VideoCard from "../../templates/VideoCard.js"
 
 class PageMediasFactory {
-    getContent(data, onClick) {
+    create(data) {
 
         if (data.image) {
 
-            return new PictureCard(data, onClick).createPictureOnPage()
+            return new PictureCard(data)
 
         } else if (data.video) {
 
-            return new VideoCard(data, onClick).createVideoOnPage()
+            return new VideoCard(data)
 
         } else {
 
