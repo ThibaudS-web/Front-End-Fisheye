@@ -147,12 +147,16 @@ async function sortMedias() {
     const popularity = document.getElementById('popularity')
     const date = document.getElementById('date')
     const title = document.getElementById('title')
+    let lastSort
 
     function sortByPopularity() {
         if (checkMenuDisplay()) {
-            removeMedias()
-            currentPhotographerMedias.sort((a, b) => b.likes > a.likes ? 1 : -1)
-            addMedias()
+            currentPhotographerMedias.sort((a, b) => b.likes > a.likes ? 1 : -1)     
+            if (lastSort !== 'popularity') {
+                removeMedias()
+                addMedias()
+            }
+            lastSort = 'popularity'
         } else {
             return
         }
@@ -160,10 +164,13 @@ async function sortMedias() {
 
     function sortByDate() {
         if (checkMenuDisplay()) {
-            removeMedias()
             currentPhotographerMedias.sort((a, b) => b.date > a.date ? 1 : -1)
             console.log(currentPhotographerMedias)
-            addMedias()
+            if (lastSort !== 'date') {
+                removeMedias()
+                addMedias()
+            }
+            lastSort = 'date'
         } else {
             return
         }
@@ -171,9 +178,12 @@ async function sortMedias() {
 
     function sortByTitle() {
         if (checkMenuDisplay()) {
-            removeMedias()
             currentPhotographerMedias.sort((a, b) => b.title < a.title ? 1 : -1)
-            addMedias()
+            if (lastSort !== 'title') {
+                removeMedias()
+                addMedias()
+            }
+            lastSort = 'title'
         } else {
             return
         }
