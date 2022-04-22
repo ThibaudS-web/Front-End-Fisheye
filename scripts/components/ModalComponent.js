@@ -10,13 +10,13 @@ class ModalComponent {
         })
 
         let selectedIndex = mediaList.findIndex(media => media.id === selectedMediaId)
-       
+
         modalContent.innerHTML = sliderItems[selectedIndex]
 
         const rightArrow = modal.querySelector('#modal-right-btn')
         const leftArrow = modal.querySelector('#modal-left-btn')
 
-        leftArrow.addEventListener('click', () => {
+        function moveLeft() {
             selectedIndex--
 
             if (selectedIndex < 0) {
@@ -24,9 +24,9 @@ class ModalComponent {
             }
 
             modalContent.innerHTML = sliderItems[selectedIndex]
-        })
+        }
 
-        rightArrow.addEventListener('click', () => {
+        function moveRight() {
             selectedIndex++
 
             if (selectedIndex >= mediaList.length) {
@@ -34,7 +34,21 @@ class ModalComponent {
             }
 
             modalContent.innerHTML = sliderItems[selectedIndex]
+        }
+
+        window.addEventListener('keydown', (e) => {
+            switch (e.code) {
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "ArrowRight":
+                    moveRight()
+                    break;
+            }
         })
+
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', moveRight)
 
         modal.style.display = 'block'
 

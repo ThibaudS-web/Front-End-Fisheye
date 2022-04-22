@@ -5,7 +5,7 @@ class SliderMedias {
 
     createPictureOnSlider() {
         return `
-                    <img src="./assets/photographers/${this.media.photographerId}/${this.media.image}" class="lightbox-img" />
+                    <img alt="${this.media.title}" src="./assets/photographers/${this.media.photographerId}/${this.media.image}" class="lightbox-img" />
                     <figcaption>${this.media.title}</figcaption>
                 `
 
@@ -13,7 +13,7 @@ class SliderMedias {
 
     createVideoOnSlider() {
         return ` 
-                    <video class="lightbox-img" controls>
+                    <video alt="${this.media.title}" class="lightbox-img" controls>
                         <source src="./assets/photographers/${this.media.photographerId}/${this.media.video}" type=video/mp4>
                     </video>
                      <figcaption>${this.media.title}</figcaption>

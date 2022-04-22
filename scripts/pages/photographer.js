@@ -205,4 +205,5 @@ async function AddInfoPhotographer() {
     tagline.innerHTML = currentPhotographer.tagline
     img.setAttribute('src', `./assets/photographers/${currentPhotographer.portrait}`)
     img.setAttribute('alt', `${currentPhotographer.name}`)
+    img.setAttribute('tabindex', `0`)       
 }

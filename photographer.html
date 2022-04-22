@@ -19,8 +19,8 @@
 	</head>
 	<body>
 		<header>
-			<a href="index.html">
-				<img src="assets/images/logo.png" class="logo" />
+			<a id="logo-link" href="index.html">
+				<img alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
 			</a>
 		</header>
 		<main id="main">
@@ -31,15 +31,39 @@
 					<p id="photographer-tagline"></p>
 				</div>
 				<button id="contact-btn" class="contact_button">Contactez-moi</button>
-				<img id="photographer-img" src="" />
+				<img alt="" id="photographer-img" src="" />
 			</div>
 			<div class="menu-container">
 				<label id="sort-label" for="sort-menu">Trier par</label>
 				<nav>
-					<ul>
-						<li id="popularity">Popularité</li>
-						<li id="date">Date</li>
-						<li id="title">Titre</li>
+					<ul tabindex="0" role="button" aria-haspopup="listbox" aria-expanded>
+						<li
+							tabindex="0"
+							aria-label="popularité"
+							aria-activedescendant
+							role="listbox"
+							id="popularity"
+						>
+							Popularité
+						</li>
+						<li
+							tabindex="0"
+							aria-label="date"
+							aria-activedescendant
+							role="listbox"
+							id="date"
+						>
+							Date
+						</li>
+						<li
+							tabindex="0"
+							aria-label="titre"
+							aria-activedescendant
+							role="listbox"
+							id="title"
+						>
+							Titre
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -53,6 +77,9 @@
 		<div id="image_lightbox" class="bground">
 			<div id="lightbox">
 				<svg
+					role="button"
+					tabindex="0"
+					aria-label="Close dialog"
 					id="lightbox-close"
 					width="42"
 					height="42"
@@ -68,8 +95,20 @@
 				<div id="lightbox-img-container">
 					<figure></figure>
 				</div>
-				<i id="modal-left-btn" class="fa-solid fa-angle-left"></i>
-				<i id="modal-right-btn" class="fa-solid fa-angle-right"></i>
+				<i
+					tabindex="0"
+					role="link"
+					aria-label="Previous picture"
+					id="modal-left-btn"
+					class="fa-solid fa-angle-left"
+				></i>
+				<i
+					tabindex="0"
+					role="link"
+					aria-label="Next picture"
+					id="modal-right-btn"
+					class="fa-solid fa-angle-right"
+				></i>
 			</div>
 		</div>
 		<!--Modal for the form-->
@@ -105,9 +144,7 @@
 				</form>
 			</div>
 		</div>
-
 		<script type="module" src="scripts/pages/photographer.js"></script>
 		<script type="module" src="scripts/UI/sort_menu.js"></script>
 	</body>
 </html>
-

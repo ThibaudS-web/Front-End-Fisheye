@@ -16,8 +16,8 @@ class VideoCard {
 
     getHTML() {
         const mediaCard = `
-            <video controls alt="${this.media.title}">
-                <source src="./assets/photographers/${this.media.photographerId}/${this.media.video}" type=video/mp4>
+            <video controls>
+                <source alt="${this.media.title}" src="./assets/photographers/${this.media.photographerId}/${this.media.video}" type=video/mp4>
             </video>
 				<div class="picture-infos">
 					<p>${this.media.title}</p>

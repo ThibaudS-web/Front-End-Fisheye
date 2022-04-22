@@ -17,13 +17,13 @@ class PictureCard {
 
     getHTML() {
         const mediaCard = `
-            <img src="./assets/photographers/${this.media.photographerId}/${this.media.image}" alt="${this.media.title}" />
+            <img tabindex='0' alt="${this.media.title}" src="./assets/photographers/${this.media.photographerId}/${this.media.image}" alt="${this.media.title}" />
 				<div class="picture-infos">
 					<p>${this.media.title}</p>
 					<div class="heart-container">
 						<p id='count-likes' class="likeCount">${this.media.likes}</p>
-						<i id="heart-full-icon" class="fa-solid fa-heart"></i>
-                        <i id="heart-empty-icon" class="fa-regular fa-heart"></i>
+						<i  aria-label="cancel like" id="heart-full-icon" class="fa-solid fa-heart"></i>
+                        <i  aria-label="like" id="heart-empty-icon" class="fa-regular fa-heart"></i>
 					</div>
 				</div>
         `
