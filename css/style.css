@@ -1,92 +1,93 @@
 @import url("photographer.css");
-@import url('form_validation.css');
-@import url('not_found.css');
+@import url("form_validation.css");
+@import url("not_found.css");
+@import url("landing_pageMQ.css");
+
 
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
-    max-width: 1440px;
-    margin: auto;
+	font-family: "DM Sans", sans-serif;
+	margin: 0;
+	max-width: 1440px;
+	margin: auto;
 }
 
-
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 90px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+	color: #901c1c;
+	margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
-    margin-top: 5%;
+	height: 50px;
+	margin-left: 100px;
+	margin-top: 5%;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 70px;
+	margin-top: 100px;
 }
 
 .photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	justify-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+	color: #d3573c;
+	font-size: 36px;
 }
 
 .photographer_section article img {
-    height: 200px;
-    width: 200px;
+	height: 200px;
+	width: 200px;
 }
 
 article > a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
 }
 
 article > a > img {
-    border-radius: 50%;
-    object-fit: cover;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 article > a > h2 {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 article > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
 }
 
 article > div > p {
-    margin: 1% 0;
+	margin: 1% 0;
 }
 
 article > div > p:nth-child(1) {
-    color: #972A2A;
-    font-weight: 500;
-    font-size: 1.1em;
+	color: #972a2a;
+	font-weight: 500;
+	font-size: 1.1em;
 }
 
 article > div > p:nth-child(3) {
-    color: #CBCBCB;
+	color: #cbcbcb;
 }

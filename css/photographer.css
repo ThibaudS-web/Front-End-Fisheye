@@ -1,4 +1,6 @@
-@import url('./photographerMQ.css');
+@import url("./photographerMQ.css");
+@import url("./modalSliderMQ.css");
+@import url("./modalContactMQ.css");
 
 #main {
 	display: flex;
@@ -46,10 +48,8 @@ nav ul:focus {
 	color: black;
 }
 
-.modal {
-	position: absolute;
-	top: 4%;
-	left: 24%;
+div.modal {
+	margin: 5vh auto auto auto;
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 50%;
@@ -59,7 +59,7 @@ nav ul:focus {
 	align-items: center;
 	justify-content: space-between;
 	padding: 35px;
-	margin: auto;
+
 	box-shadow: -13px 0 20px -10px rgba(0, 0, 0, 0.5);
 }
 
@@ -71,6 +71,10 @@ nav ul:focus {
 }
 
 .modal header img {
+	cursor: pointer;
+}
+
+#contact_close{
 	cursor: pointer;
 }
 
@@ -328,7 +332,7 @@ article video {
 }
 
 #lightbox-img-container {
-	width: 850px;
+	width: 80%;
 	height: auto;
 	display: flex;
 	overflow: hidden;
@@ -350,8 +354,8 @@ figcaption {
 }
 
 .lightbox-img {
-	width: 850px;
-	height: 720px;
+	width: 100%;
+	height: 59vh;
 	border-radius: 5px;
 	object-fit: cover;
 	box-shadow: -13px 0 20px -10px rgb(0 0 0 / 50%);
@@ -380,4 +384,3 @@ figcaption {
 	top: 50%;
 	left: 65px;
 }
-

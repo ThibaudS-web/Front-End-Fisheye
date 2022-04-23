@@ -1,0 +1,37 @@
+@media screen and (max-width: 1024px) {
+	#main .photographer_section {
+		margin-top: 50px;
+		gap: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: row wrap;
+	}
+}
+
+@media screen and (max-width: 660px) {
+	#logo-link {
+		margin-left: unset;
+		margin: auto;
+	}
+
+	header a .logo {
+		margin-left: unset;
+		height: 40px;
+		margin-top: 15px;
+	}
+
+	body header {
+		flex-direction: column;
+	}
+
+	#header-title {
+		margin: 0;
+		align-self: center;
+		font-size: 1.8em;
+	}
+
+	article a h2.landing-photographer-name {
+		font-size: 1.8em;
+	}
+}

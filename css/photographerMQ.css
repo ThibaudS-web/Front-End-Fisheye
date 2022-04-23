@@ -47,6 +47,21 @@
 		padding-bottom: 56px;
 	}
 
+	nav ul > li {
+		padding: 15px 15px;
+	}
+
+	nav ul::after {
+		right: 40px;
+		top: 20px;
+		width: 0.5em;
+		height: 0.5em;
+	}
+
+	ul.arrow-up::after {
+		top: 24px;
+	}
+
 	#media-container article {
 		align-self: center;
 		width: 100%;
@@ -57,13 +72,13 @@
 		margin-left: 10px;
 	}
 
-    #photograph-infos > :nth-child(2) {
-        font-size: 1.2rem;
-    }
+	#photograph-infos #photographer-location {
+		font-size: 1.3rem;
+	}
 
-    #photograph-infos > :nth-child(3){
-        line-height: 15px;
-    }
+	#photograph-infos > :nth-child(3) {
+		line-height: 15px;
+	}
 
 	img#photographer-img {
 		border-radius: unset;
