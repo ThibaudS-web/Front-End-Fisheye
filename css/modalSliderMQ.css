@@ -1,0 +1,116 @@
+@media screen and (max-width: 1024px) {
+	#lightbox i {
+		top: 44%;
+	}
+
+	i#modal-left-btn {
+		left: 45px;
+	}
+
+	figure .lightbox-img {
+		height: 49vh;
+	}
+
+	svg#lightbox-close {
+		top: 75px;
+	}
+
+	.bground #lightbox {
+		height: 55vh;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	#lightbox i {
+		top: 44%;
+		font-size: 3em;
+	}
+
+	i#modal-left-btn {
+		left: 45px;
+	}
+
+	figure .lightbox-img {
+		height: 40vh;
+	}
+
+	svg#lightbox-close {
+		top: 75px;
+		right: 55px;
+		width: 35px;
+		height: 35px;
+	}
+
+	.bground #lightbox {
+		height: 47vh;
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.bground #lightbox {
+		position: unset;
+		height: 55vh;
+		width: 100%;
+		margin-top: 20vh;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	div#lightbox-img-container {
+		width: 95%;
+	}
+
+    div#lightbox-img-container figure {
+        margin: 0;
+    }
+
+	#lightbox i {
+		top: 71%;
+		font-size: 2.8em;
+	}
+
+	svg#lightbox-close {
+		top: 22%;
+		right: 19px;
+		width: 30px;
+		height: 30px;
+	}
+
+	i#modal-left-btn {
+		left: 20%;
+	}
+
+	i#modal-right-btn {
+		right: 20%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	figcaption {
+        text-align: center;
+	}
+
+	div#lightbox-img-container {
+		width: 100%;
+	}
+
+	figure .lightbox-img {
+		height: 30vh;
+		border-radius: 0;
+	}
+
+	svg#lightbox-close {
+		top: 23%;
+		width: 25px;
+		height: 25px;
+	}
+
+	.bground #lightbox {
+		height: 50vh;
+	}
+
+	#lightbox i {
+		top: 65%;
+		font-size: 2em;
+	}
+}

@@ -1,0 +1,23 @@
+#error-notfound {
+	width: 80%;
+	height: 600px;
+	background-color: #fafafa;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+
+#img-notfound {
+	height: auto;
+	width: 60%;
+    margin-top: 2em;
+}
+
+#text-notfound {
+    margin-top: 1.5em;
+    margin-right: 0;
+	width: 80%;
+    text-align: center;
+}

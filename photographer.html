@@ -1,36 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
+	<head>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+		<link
+			href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<title>Fisheye - photographe</title>
+	</head>
+	<body>
+		<header>
+			<a id="logo-link" href="index.html">
+				<img alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
+			</a>
+		</header>
+		<main id="main">
+			<div class="photograph-header">
+				<div id="photograph-infos">
+					<h1 id="photographer-name"></h1>
+					<p id="photographer-location"></p>
+					<p id="photographer-tagline"></p>
+				</div>
+				<button id="contact-btn" class="contact_button">Contactez-moi</button>
+				<img alt="" id="photographer-img" src="" />
+			</div>
+			<div class="menu-container">
+				<label id="sort-label" for="sort-menu">Trier par</label>
+				<nav>
+					<ul tabindex="0" role="button" aria-haspopup="listbox" aria-expanded>
+						<li
+							tabindex="0"
+							aria-label="popularité"
+							aria-activedescendant
+							role="listbox"
+							id="popularity"
+						>
+							Popularité
+						</li>
+						<li
+							tabindex="0"
+							aria-label="date"
+							aria-activedescendant
+							role="listbox"
+							id="date"
+						>
+							Date
+						</li>
+						<li
+							tabindex="0"
+							aria-label="titre"
+							aria-activedescendant
+							role="listbox"
+							id="title"
+						>
+							Titre
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div id="media-container"></div>
+			<div id="like-container">
+				<div id="like"></div>
+				<div id="price"></div>
+			</div>
+		</main>
+		<!--Lightbox for pictures-->
+		<div id="image_lightbox" class="bground">
+			<div id="lightbox">
+				<svg
+					role="button"
+					tabindex="0"
+					aria-label="Close dialog"
+					id="lightbox-close"
+					width="42"
+					height="42"
+					viewBox="0 0 42 42"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z"
+						fill="#901c1c"
+					/>
+				</svg>
+				<div id="lightbox-img-container">
+					<figure></figure>
+				</div>
+				<i
+					tabindex="0"
+					role="link"
+					aria-label="Previous picture"
+					id="modal-left-btn"
+					class="fa-solid fa-angle-left"
+				></i>
+				<i
+					tabindex="0"
+					role="link"
+					aria-label="Next picture"
+					id="modal-right-btn"
+					class="fa-solid fa-angle-right"
+				></i>
+			</div>
+		</div>
+		<!--Modal for the form-->
+		<div id="contact_modal" class="bground">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
+				<div id="modal-header">
+					<h2>Contactez-moi</h2>
+					<img id="contact_close" src="assets/icons/close.svg" />
+					<h2 id="modal-photograph-name"></h2>
+				</div>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+						<input name="firstName" id="firstname" />
+						<span id="error-firstName" class="text-error"></span>
 					</div>
-          <button class="contact_button">Envoyer</button>
+					<div>
+						<label for="lastname">Nom</label>
+						<input name="lastName" id="lastname" />
+						<span id="error-lastName" class="text-error"></span>
+					</div>
+					<div>
+						<label for="email">Email</label>
+						<input name="email" id="email" />
+						<span id="error-email" class="text-error"></span>
+					</div>
+					<div>
+						<label for="message">Votre Message</label>
+						<textarea name="message" id="message"></textarea>
+						<span id="error-message" class="text-error"></span>
+					</div>
+					<button id="submit-btn" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+		<script type="module" src="scripts/pages/photographer.js"></script>
+		<script type="module" src="scripts/UI/sort_menu.js"></script>
+	</body>
 </html>
