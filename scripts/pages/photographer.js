@@ -20,7 +20,7 @@ const redirection = new RedirectionComponent()
 const likedMedias = new Map()
 
 function init() {
-    VerifyURLOnPhotographerHTML()
+    verifyURLOnPhotographerHTML()
     editTitleDocument()
     addMedias()
     photographerInfosBottomBanner()
@@ -31,7 +31,7 @@ function init() {
 
 init()
 
-function VerifyURLOnPhotographerHTML() {
+function verifyURLOnPhotographerHTML() {
 
     function matchId() {
         return getPhotographers.some(photographer => photographer.id == photographerId)
@@ -89,7 +89,6 @@ function displaySliderModal(mediaId) {
 }
 
 function likeMedia(mediaId) {
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
     let currentMedia = currentPhotographerMedias.find((media) => media.id === mediaId)
 
     if (likedMedias.has(mediaId)) {
@@ -100,8 +99,8 @@ function likeMedia(mediaId) {
     }
 }
 
+
 function dislikeMedia(mediaId) {
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
     let currentMedia = currentPhotographerMedias.find((media) => media.id === mediaId)
 
     if (!likedMedias.has(mediaId)) {

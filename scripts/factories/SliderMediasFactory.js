@@ -14,7 +14,7 @@ class SliderMediasFactory {
         } else {
 
             throw "Slider does not recognize this data"
-
+            
         }
     }
 }
