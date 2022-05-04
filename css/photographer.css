@@ -259,7 +259,7 @@ article video {
 	display: flex;
 	align-items: center;
 }
-
+	
 .likeCount {
 	color: #901c1c;
 	margin-right: 7px;
@@ -282,8 +282,8 @@ article video {
 #media-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 87%;
+    justify-content: space-around;
+    width: 95%;
 	align-self: center;
 }
 
