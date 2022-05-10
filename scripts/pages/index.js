@@ -7,13 +7,13 @@ async function getPhotographers() {
         photographers
     })
 }
-// console.log(await getPhotographers())
-async function displayData(photographers) {
+
+function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     const photograherInfos = new PhotographerInfos()
     
     photographers.forEach((photographer) => {
-        const userCardDOM = photograherInfos.getPhotograherCardInLandingPage(photographer)
+        const userCardDOM = photograherInfos.getHTML(photographer)
         photographersSection.innerHTML += userCardDOM;
     })
 }

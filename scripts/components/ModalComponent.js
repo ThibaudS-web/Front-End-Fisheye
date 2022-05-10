@@ -4,6 +4,8 @@ import InputField from "../UI/InputField.js"
 class ModalComponent {
 
     displayMediaSlider(modal, mediaList, selectedMediaId) {
+        modal.style.display = 'block'
+        
         const modalContent = modal.querySelector("#lightbox-img-container figure")
         const sliderItems = mediaList.map((media) => {
             return new SliderMediasFactory().getContent(media)
@@ -49,8 +51,6 @@ class ModalComponent {
 
         leftArrow.addEventListener('click', moveLeft)
         rightArrow.addEventListener('click', moveRight)
-
-        modal.style.display = 'block'
 
         const closeModalBtn = modal.querySelector('#lightbox-close')
         closeModalBtn.addEventListener('click', () => {

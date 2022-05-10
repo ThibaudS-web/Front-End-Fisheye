@@ -1,5 +1,5 @@
 class photographerInfo {
-    getPhotograherCardInLandingPage(dataPhotographer) {
+    getHTML(dataPhotographer) {
         return `<article>
 	                <a  href="photographer.html?photographerId=${dataPhotographer.id}">
 		                <img src="assets/photographers/${dataPhotographer.portrait}" alt="${dataPhotographer.name}" />

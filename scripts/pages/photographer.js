@@ -142,7 +142,7 @@ function removeMedias() {
     $wrapperMedias.querySelectorAll('article').forEach(media => media.remove())
 }
 
-async function sortMedias() {
+ function sortMedias() {
     const popularity = document.getElementById('popularity')
     const date = document.getElementById('date')
     const title = document.getElementById('title')
@@ -150,7 +150,7 @@ async function sortMedias() {
 
     function sortByPopularity() {
         if (checkMenuDisplay()) {
-            currentPhotographerMedias.sort((a, b) => b.likes > a.likes ? 1 : -1)     
+            currentPhotographerMedias.sort((a, b) => b.likes > a.likes ? 1 : -1)
             if (lastSort !== 'popularity') {
                 removeMedias()
                 addMedias()
@@ -193,7 +193,7 @@ async function sortMedias() {
     title.addEventListener('click', sortByTitle)
 }
 
-async function AddInfoPhotographer() {
+function AddInfoPhotographer() {
     const name = document.getElementById('photographer-name')
     const location = document.getElementById('photographer-location')
     const tagline = document.getElementById('photographer-tagline')
@@ -204,5 +204,5 @@ async function AddInfoPhotographer() {
     tagline.innerHTML = currentPhotographer.tagline
     img.setAttribute('src', `./assets/photographers/${currentPhotographer.portrait}`)
     img.setAttribute('alt', `${currentPhotographer.name}`)
-    img.setAttribute('tabindex', `0`)       
+    img.setAttribute('tabindex', `0`)
 }
