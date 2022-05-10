@@ -27,8 +27,13 @@
 		width: 70%;
 	}
 
+	#photographer-infos {
+		margin: 20px 20px 0 0;
+	}
+
 	#photograph-infos #photographer-name {
 		font-size: 1.9rem;
+		margin: 20px 0 0 0;
 	}
 }
 

@@ -74,7 +74,7 @@ div.modal {
 	cursor: pointer;
 }
 
-#contact_close{
+#contact_close {
 	cursor: pointer;
 }
 
@@ -150,7 +150,7 @@ textarea {
 
 #photograph-infos h1 {
 	color: #d3573c;
-	font-size: 3.5em;
+	font-size: 3em;
 	margin-bottom: 0;
 	font-weight: lighter;
 }
@@ -259,7 +259,7 @@ article video {
 	display: flex;
 	align-items: center;
 }
-	
+
 .likeCount {
 	color: #901c1c;
 	margin-right: 7px;
@@ -282,8 +282,8 @@ article video {
 #media-container {
 	display: flex;
 	flex-wrap: wrap;
-    justify-content: space-around;
-    width: 95%;
+    justify-content: space-between;
+    width: 88%;
 	align-self: center;
 }
 
@@ -355,7 +355,7 @@ figcaption {
 
 .lightbox-img {
 	width: 100%;
-	height: 59vh;
+	height: 700px;
 	border-radius: 5px;
 	object-fit: cover;
 	box-shadow: -13px 0 20px -10px rgb(0 0 0 / 50%);
