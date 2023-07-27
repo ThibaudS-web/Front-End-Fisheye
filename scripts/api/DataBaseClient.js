@@ -1,6 +1,6 @@
 class DataBaseClient {
     constructor() {
-        this.url = '../../data/photographers.json'
+        this.url = 'data/photographers.json'
     }
 
     async getDB() {
@@ -20,7 +20,7 @@ class DataBaseClient {
         const dataBase = await this.getDB()
         const medias = dataBase?.media
         return medias
-    } 
+    }
 
     handleErrors(response) {
         if (!response.ok) throw new Error(response.status)
